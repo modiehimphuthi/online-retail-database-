@@ -4,7 +4,7 @@ A relational database design for an online retail business, built in T-SQL (SQL 
 
 ## Overview
 
-This project models the core of an online retail system: customers place orders, orders contain multiple products (via a junction table), and payments are recorded against orders. The schema is normalized to avoid data duplication, with foreign keys and constraints enforcing data integrity at the database level rather than relying on application code.
+This project models the core of an online retail system, customers place orders, orders contain multiple products, and payments are recorded against orders. The schema is normalized to avoid data duplication, with foreign keys and constraints enforcing data integrity at the database level rather than relying on application code.
 
 ## Entity-Relationship Summary
 
@@ -22,15 +22,15 @@ Customers (1) ───< Orders (1) ───< OrderItems >─── (1) Product
 
 | Table | Purpose |
 |---|---|
-| `Customers` | One row per customer — name, email (unique), signup date, city |
-| `Products` | One row per sellable product — name, category, price, stock quantity |
-| `Orders` | One row per order — links to a customer, tracks status and order date |
+| `Customers` | One row per customer - name, email (unique), signup date, city |
+| `Products` | One row per sellable product - name, category, price, stock quantity |
+| `Orders` | One row per order - links to a customer, tracks status and order date |
 | `OrderItems` | Junction table resolving the many-to-many relationship between orders and products; records quantity and the price *at the time of sale* |
 | `Payments` | One row per payment made against an order |
 
 ## Design Decisions
 
-**Normalization.** Customer details live only in `Customers`, product details only in `Products`. Every other table references them by ID rather than repeating that data, so an update (e.g. a customer's email) only ever needs to happen in one place.
+**Normalization.** Customer details live only in `Customers`, product details only in `Products`. Every other table references them by ID rather than repeating that data, so an update (e.g. a customer's email) only ever needs to happen in one place. 
 
 **`unit_price` is stored on `OrderItems`, not looked up from `Products`.** Product prices change over time; an order placed six months ago should still reflect what the customer actually paid, not today's current price. Capturing price at the point of sale keeps historical orders accurate.
 
