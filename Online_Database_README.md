@@ -57,10 +57,7 @@ Customers (1) ───< Orders (1) ───< OrderItems >─── (1) Product
 
 ## How to Run
 
-This is written in T-SQL and requires a genuine SQL Server engine (not MySQL/PostgreSQL/SQLite, which don't support `IDENTITY`, `GETDATE()`, or this exact constraint syntax).
-
 - **Locally:** SQL Server Management Studio (SSMS) or Azure Data Studio
-- **Online sandbox:** [dbfiddle.uk](https://dbfiddle.uk) — select a SQL Server engine version, paste the schema/sample data, then run queries separately
 
 Run the script top to bottom — it drops any existing tables with the same names first, then creates the schema, inserts sample data, and runs the verification queries.
 
