@@ -1,6 +1,6 @@
 # Online Retail SQL Database
 
-A relational database design for an online retail business, built in T-SQL (SQL Server) as a self-directed learning project covering schema design, constraints, indexing, and query patterns from basic `SELECT` statements through window functions and transactions.
+A relational database design for an online retail business, built in SQL Server as a self-directed learning project covering schema design, constraints, indexing, and query patterns from basic `SELECT` statements through window functions and transactions.
 
 ## Overview
 
