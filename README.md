@@ -61,6 +61,14 @@ Customers (1) ───< Orders (1) ───< OrderItems >─── (1) Product
 
 Run the script top to bottom — it drops any existing tables with the same names first, then creates the schema, inserts sample data, and runs the verification queries.
 
+## Planned: Data Modeling Phase
+
+Redesigning this schema as a simple star schema to practice dimensional modeling:
+
+- One fact table (likely `FactOrders` or `FactOrderItems`)
+- 2–3 dimension tables (e.g. `DimCustomer`, `DimProduct`, `DimDate`)
+- Applying SCD Type 1/2 concepts where relevant (e.g. tracking customer address changes)
+
 ## Possible Extensions
 
 - A `Categories` table with a self-referencing `parent_category_id`, to practice recursive CTEs for arbitrary-depth category hierarchies
