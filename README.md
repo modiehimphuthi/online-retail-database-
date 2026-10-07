@@ -68,9 +68,3 @@ Redesigning this schema as a simple star schema to practice dimensional modeling
 - One fact table (likely `FactOrders` or `FactOrderItems`)
 - 2–3 dimension tables (e.g. `DimCustomer`, `DimProduct`, `DimDate`)
 - Applying SCD Type 1/2 concepts where relevant (e.g. tracking customer address changes)
-
-## Possible Extensions
-
-- A `Categories` table with a self-referencing `parent_category_id`, to practice recursive CTEs for arbitrary-depth category hierarchies
-- A reporting `VIEW` layer summarizing customer lifetime value or monthly sales
-- Stored procedures for common operations (e.g. placing an order, wrapped in a transaction to guarantee the order, its items, and the stock update all succeed or fail together)
